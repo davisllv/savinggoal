@@ -38,6 +38,11 @@ const App: React.FC = () => {
       alert("Inclua os dados");
       return;
     }
+
+    if (Number(inputMoneyByMonth) > Number(inputTotalAmounth)) {
+      alert("Total amounth must be higher than Money per month");
+      return;
+    }
     setGoalDatasList((prevState) => {
       const newDatas: IGoal = {
         id: Math.random() * 100,
