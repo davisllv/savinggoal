@@ -114,7 +114,8 @@ header{
   align-items: center;
   position: relative;
 }
-.totalAmonth input {
+.totalAmonth input,
+.moneyMonth input {
     font-family: Rubik, sans-serif;
     border: none;
     font-weight: 500;
@@ -122,15 +123,6 @@ header{
     color: rgb(77, 100, 117);
     width: 100%;
     padding: 15px 15px 15px 10px;
-}
-.moneyMonth input {
-  font-family: Rubik, sans-serif;
-    border: none;
-    font-weight: 200;
-    font-size: 20px;
-    color: rgb(77, 100, 117);
-    width: 100%;
-    padding: 15px 10px 15px 10px;
 }
 
 
