@@ -86,6 +86,17 @@ const App: React.FC = () => {
               onChange={handleChangeTitle}
               ref={inputGoal}
             ></input>
+            {idGoals && (
+              <button
+                onClick={() => {
+                  setInputTitle("");
+                  setInputTotalAmounth("1000");
+                  setInputMoneyByMonth("1");
+                }}
+              >
+                Reset
+              </button>
+            )}
           </div>
           <form className="form-input-boxes" onSubmit={handleChangeSubmit}>
             <div className="inpt-boxes">
