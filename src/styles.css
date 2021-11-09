@@ -74,6 +74,20 @@ header{
   padding: 10px;
 }
 
+.boxes button {
+  background-color: rgb(27, 49, 168);
+  color: whitesmoke;
+  border: none;
+  border-radius: 20px;
+  width: 150px;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.boxes button:hover{
+  background-color: rgb(27,49, 210)
+}
+
 .inpt-boxes{
   display: flex;
   flex-direction: row;
