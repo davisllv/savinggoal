@@ -11,6 +11,8 @@ const App: React.FC = () => {
   const [inputTotalAmounth, setInputTotalAmounth] = useState("1000");
   const [inputMoneyByMonth, setInputMoneyByMonth] = useState("1");
   const [inputTitle, setInputTitle] = useState("");
+  const [idGoals, setIdGoals] = useState<number | null>(null);
+  
   const inputGoal = useRef<HTMLInputElement | null>(null);
   useEffect(() => {
     inputGoal.current?.focus();
@@ -44,6 +46,13 @@ const App: React.FC = () => {
       return;
     }
     setGoalDatasList((prevState) => {
+      const allData = prevState.find((it) => it.id === idGoals);
+      if (allData) {
+        allData.moneyByMonth = Number(inputMoneyByMonth);
+        allData.title = inputTitle;
+        allData.totalAmounth = Number(inputTotalAmounth);
+        setIdGoals(null);
+        return [...prevState];
       const newDatas: IGoal = {
         id: Math.random() * 100,
         title: inputTitle,
@@ -152,7 +161,7 @@ const App: React.FC = () => {
               </p>
             </div>
             <div className="button">
-              <button>Confirm</button>
+              <button>{!idGoals ? "Confirm" : "Change"}</button>
             </div>
           </form>
           <div className="list-boxes">
@@ -164,7 +173,13 @@ const App: React.FC = () => {
                   {goalDatasList.map((item) => {
                     return (
                       <li>
-                        <span>{item.title}</span>
+                        <span
+                          onClick={() => {
+                            setInputTitle(item.title);
+                            setInputTotalAmounth(String(item.totalAmounth));
+                            setInputMoneyByMonth(String(item.moneyByMonth));
+                            setIdGoals(item.id);
+                          >{item.title}</span>
                         <span>
                           {"$"}
                           {item.totalAmounth}
