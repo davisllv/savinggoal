@@ -1,3 +1,9 @@
+#Saving goal plan calculator
+Put the amount value you want to save at the "Total amount" input
+Put the money per month quantity.
+See the months amount to reach your goal
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
