@@ -20,8 +20,7 @@ body{
 /* =========HEADER========= */
 header{
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
   width: 100%;
   border-bottom: 1px solid #e4e4e4;
   margin-bottom: 2rem;
@@ -33,7 +32,14 @@ header{
 .header h1 {
   font-style: italic;
   font-size: 25px;
-  margin: 25px;
+  margin: 25px 0 25px 0;
+}
+.header img {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  height: 70px;
+  margin-left: 25px;
 }
 /* =========CONTAINER========= */
 
@@ -102,13 +108,13 @@ header{
 }
 
 .total-input{
-  width: 350px;
+  width: 50%;
   margin-right: 16px;
   
   
 }
 .money-per-month-input{
-  width: 350px;
+  width: 50%;
 }
 .totalAmonth, .moneyMonth{
   border: 1px solid rgb(233, 238, 242);
@@ -134,15 +140,14 @@ header{
 }
 
 
-
-.text-box p{
-  font-size: 16px;
+.text-box {
+  
+  max-width: 605px;
+  font-size: 13px;
   line-height: 16px;
-  text-align: center;
   background-color: rgb(236, 236, 236);
   margin-top: 24px;
   padding: 24px 32px;
-  text-align: left;
   border-radius: 4px;
 }
 
