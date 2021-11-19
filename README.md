@@ -1,8 +1,11 @@
-#Saving goal plan calculator
+# Saving goal plan calculator
 Put the amount value you want to save at the "Total amount" input
 Put the money per month quantity.
 See the months amount to reach your goal
 
+## The Saving Goal Plan Simulation Screen
+
+![Saving Goal Plan Mockup Desktop](https://github.com/davisllv/savinggoal/blob/main/images/saving-goal-image.png?raw=true)
 
 # Getting Started with Create React App
 
