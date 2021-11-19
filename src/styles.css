@@ -11,13 +11,13 @@ ul{
 a{
   text-decoration: none;
 }
-/* BODY */
+/* =========BODY========= */
 
 body{
   font-family: "Work Sans", sans-serif;
   background-color: rgb(244, 248, 250);
 }
-/* HEADER */
+/* =========HEADER========= */
 header{
   display: flex;
   align-items: flex-start;
@@ -35,7 +35,7 @@ header{
   font-size: 25px;
   margin: 25px;
 }
-/* CONTAINER */
+/* =========CONTAINER========= */
 
 .container{
   display: flex;
@@ -72,20 +72,23 @@ header{
   border-radius: 4px;
   position: relative;
   padding: 10px;
+  outline: none;
 }
 
 .boxes button {
-  background-color: rgb(27, 49, 168);
+  background: #0000FF;
   color: whitesmoke;
   border: none;
   border-radius: 20px;
   width: 150px;
   margin-left: 10px;
   font-weight: 600;
+  transition: background .2s;
+  
 }
 
 .boxes button:hover{
-  background-color: rgb(27,49, 210)
+  background: #1E90FF
 }
 
 .inpt-boxes{
@@ -99,12 +102,13 @@ header{
 }
 
 .total-input{
-  width: 50%;
+  width: 350px;
   margin-right: 16px;
+  
   
 }
 .money-per-month-input{
-  width: 40%;
+  width: 350px;
 }
 .totalAmonth, .moneyMonth{
   border: 1px solid rgb(233, 238, 242);
@@ -114,8 +118,11 @@ header{
   align-items: center;
   position: relative;
 }
-.totalAmonth input,
-.moneyMonth input {
+::-webkit-input-placeholder{
+  font-size: 15px;
+  
+}
+.totalAmonth input, .moneyMonth input {
     font-family: Rubik, sans-serif;
     border: none;
     font-weight: 500;
@@ -123,14 +130,16 @@ header{
     color: rgb(77, 100, 117);
     width: 100%;
     padding: 15px 15px 15px 10px;
+    outline: none;
 }
 
 
+
 .text-box p{
-  font-size: 12px;
+  font-size: 16px;
   line-height: 16px;
   text-align: center;
-  background-color: rgb(244, 248, 250);
+  background-color: rgb(236, 236, 236);
   margin-top: 24px;
   padding: 24px 32px;
   text-align: left;
@@ -143,7 +152,7 @@ header{
 }
 
 .button button{
-  background-color: rgb(27, 49, 168);
+  background: #0000FF;
   color: whitesmoke;
   border: none;
   border-radius: 20px;
@@ -151,10 +160,12 @@ header{
   height: 50px;
   font-weight: 600;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
 .button button:hover{
-  background-color:rgb(31, 57, 201);
+  background:#1E90FF;
+  
 }
 
 .list-boxes{
@@ -165,8 +176,10 @@ header{
 }
 
 .list-boxes p{
+  margin: 15px;
   font-style: italic;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .task-list ul li{
@@ -176,6 +189,7 @@ header{
 }
 
 .task-list ul li span{
-  margin-top: 10px;
-  margin-bottom: 10px;
+  font-weight: bold;
+  margin: 10px;
 }
+
