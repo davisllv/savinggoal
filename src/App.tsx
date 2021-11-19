@@ -4,8 +4,8 @@ import "./styles.css";
 export interface IGoal {
   id: number;
   title: string;
-  totalAmounth: number;
-  moneyByMonth: number;
+  totalAmounth: string;
+  moneyByMonth: string;
 }
 const App: React.FC = () => {
   const [goalDatasList, setGoalDatasList] = useState<IGoal[]>([]);
@@ -19,6 +19,16 @@ const App: React.FC = () => {
   useEffect(() => {
     inputGoal.current?.focus();
   }, []);
+
+  useEffect(() => {
+    function numberWithCommas(x: string) {
+      return x.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+    let totalAmounth = numberWithCommas(inputTotalAmounth);
+    let moneyAmounth = numberWithCommas(inputMoneyByMonth);
+    setInputTotalAmounth(totalAmounth);
+    setInputMoneyByMonth(moneyAmounth);
+  }, [inputTotalAmounth, inputMoneyByMonth]);
 
   function handleChangeTotalAmounth(
     ev: React.ChangeEvent<HTMLInputElement>
@@ -50,17 +60,17 @@ const App: React.FC = () => {
     setGoalDatasList((prevState) => {
       const allData = prevState.find((it) => it.id === idGoals);
       if (allData) {
-        allData.moneyByMonth = Number(inputMoneyByMonth);
+        allData.moneyByMonth = inputMoneyByMonth;
         allData.title = inputTitle;
-        allData.totalAmounth = Number(inputTotalAmounth);
+        allData.totalAmounth = inputTotalAmounth;
         setIdGoals(null);
         return [...prevState];
       }
       const newDatas: IGoal = {
         id: Math.random() * 100 + 1,
         title: inputTitle,
-        moneyByMonth: Number(inputMoneyByMonth),
-        totalAmounth: Number(inputTotalAmounth),
+        moneyByMonth: inputMoneyByMonth.replace(/\B(?=(\d{3})+(?!\d))/g, "."),
+        totalAmounth: inputTotalAmounth.replace(/\B(?=(\d{3})+(?!\d))/g, "."),
       };
       const newGoalsData = [...prevState, newDatas];
       return newGoalsData;
@@ -74,6 +84,10 @@ const App: React.FC = () => {
   return (
     <>
       <header className="header">
+        <img
+          src="https://assets.materialup.com/uploads/729ddd0b-3e18-47ea-a6c4-b9d4ae641f73/preview.png"
+          alt=""
+        />
         <h1>SavingGoal</h1>
       </header>
       <div className="container">
@@ -125,7 +139,8 @@ const App: React.FC = () => {
                 {`You're planning`} <strong>{`$${inputMoneyByMonth}`}</strong>{" "}
                 {`deposits by months, so you are going to reach
               your $${inputTotalAmounth} in ${Math.trunc(
-                  Number(inputTotalAmounth) / Number(inputMoneyByMonth)
+                  Number(inputTotalAmounth.replace(".", "")) /
+                    Number(inputMoneyByMonth.replace(".", ""))
                 )} months.`}
               </p>
             </div>
