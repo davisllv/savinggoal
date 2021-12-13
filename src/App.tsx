@@ -146,7 +146,7 @@ const App: React.FC = () => {
             </div>
             <div className="button">
               <button>{!idGoals ? "Confirm" : "Change"}</button>
-              {/* {idGoals && <button>OláMundo</button>} */}
+              
             </div>
           </form>
           <div className="list-boxes">
