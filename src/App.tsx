@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import InputNumbers from "./Components/Input";
 import "./styles.css";
+
 export interface IGoal {
   id: number;
   title: string;
@@ -15,7 +18,11 @@ const App: React.FC = () => {
   const [idGoals, setIdGoals] = useState<number | null>(null);
 
   const inputGoal = useRef<HTMLInputElement | null>(null);
-
+  const months =
+    Number(inputTotalAmounth) > 0 && Number(inputMoneyByMonth) > 0
+      ? Number(inputTotalAmounth.replace(".", "")) /
+        Number(inputMoneyByMonth.replace(".", ""))
+      : 0;
   useEffect(() => {
     inputGoal.current?.focus();
   }, []);
@@ -49,11 +56,16 @@ const App: React.FC = () => {
     ev.preventDefault();
 
     if (!inputTotalAmounth || !inputMoneyByMonth || !inputTitle) {
-      alert("Inclua os dados");
+      toast.error("Please include the data");
       return;
     }
-    if (Number(inputMoneyByMonth) > Number(inputTotalAmounth)) {
-      alert("Total amounth must be higher than Money per month");
+    if (
+      Number(inputMoneyByMonth.replace(".", "")) >
+      Number(inputTotalAmounth.replace(".", ""))
+    ) {
+      toast.info("Total amounth must be higher than Money per month");
+      setInputMoneyByMonth("");
+      setInputTotalAmounth("");
       return;
     }
 
@@ -83,6 +95,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      <ToastContainer />
       <header className="header">
         <img
           src="https://assets.materialup.com/uploads/729ddd0b-3e18-47ea-a6c4-b9d4ae641f73/preview.png"
@@ -138,15 +151,13 @@ const App: React.FC = () => {
               <p>
                 {`You're planning`} <strong>{`$${inputMoneyByMonth}`}</strong>{" "}
                 {`deposits by months, so you are going to reach
-              your`} <strong>{`$${inputTotalAmounth}`}</strong> {`in`} <strong>{`${Math.trunc(
-                  Number(inputTotalAmounth) > 0 ? Number(inputTotalAmounth.replace(".", "")) : 1 /
-                    Number(inputMoneyByMonth) > 0 ? Number(inputMoneyByMonth.replace(".", "")) : 1
-                )} months.`}</strong>
+              your`}{" "}
+                <strong>{`$${inputTotalAmounth}`}</strong> {`in`}{" "}
+                <strong>{`${months} months.`}</strong>
               </p>
             </div>
             <div className="button">
               <button>{!idGoals ? "Confirm" : "Change"}</button>
-              
             </div>
           </form>
           <div className="list-boxes">
