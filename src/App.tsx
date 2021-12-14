@@ -138,10 +138,10 @@ const App: React.FC = () => {
               <p>
                 {`You're planning`} <strong>{`$${inputMoneyByMonth}`}</strong>{" "}
                 {`deposits by months, so you are going to reach
-              your $${inputTotalAmounth} in ${Math.trunc(
-                  Number(inputTotalAmounth.replace(".", "")) /
-                    Number(inputMoneyByMonth.replace(".", ""))
-                )} months.`}
+              your`} <strong>{`$${inputTotalAmounth}`}</strong> {`in`} <strong>{`${Math.trunc(
+                  Number(inputTotalAmounth) > 0 ? Number(inputTotalAmounth.replace(".", "")) : 1 /
+                    Number(inputMoneyByMonth) > 0 ? Number(inputMoneyByMonth.replace(".", "")) : 1
+                )} months.`}</strong>
               </p>
             </div>
             <div className="button">
