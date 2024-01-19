@@ -11,7 +11,7 @@ See the months amount to reach your goal
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Available Scrip
 
 In the project directory, you can run:
 
